@@ -28,7 +28,8 @@ function formHandler(form) {
         const data = {};
         
 
-        for (const { name, value } of form.elements) {
+        for (const element of form.elements) {
+            const { name, value } = element;
             if (name) {
                 data[name] = value;
             }
