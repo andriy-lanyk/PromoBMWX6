@@ -33,7 +33,7 @@ function formHandler(form) {
             if (name) {
                 if (value.trim()) {
                     element.style.border = '';
-                    data[name] = value;
+                    data[name] = value.trim();
                 } else {
                     element.style.border = '1px solid red';
                     element.value = '';
