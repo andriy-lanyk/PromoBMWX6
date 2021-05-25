@@ -26,16 +26,23 @@ function formHandler(form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const data = {};
+        let flag = true;
         
-
         for (const element of form.elements) {
             const { name, value } = element;
             if (name) {
-                data[name] = value;
-            }
+                if (value.trim()) {
+                    element.style.border = '';
+                    data[name] = value;
+                } else {
+                    element.style.border = '1px solid red';
+                    element.value = '';
+                    flag = false;
+                };
+            };
         };
         
-        if (data.name === '' || data.name === ' ') {
+        if (!flag) {
             createWarningMessage(e);
             return
         };
